@@ -4,11 +4,12 @@ const { MONGO_URI } = require('../config/envs')
 const conn = mongoose.createConnection(MONGO_URI)
 
 const Character = conn.model('Character', require('./schemas/characterSchema'))
-const Film = conn.model('Film', require('./schemas/filmSchema'))
+// const Film = conn.model('Film', require('./schemas/filmSchema'))
 
 Character.find()
-    .populate('films', ['_id', 'title'])
+    // .populate('films', ['_id', 'title'])
     .then(res => console.log(res[0]))
+    .catch()
 
 
 

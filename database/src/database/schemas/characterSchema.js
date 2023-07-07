@@ -1,4 +1,5 @@
 const { Schema } = require('mongoose')
+const { Character } = require('..')
 
 const characterSchema = new Schema({
     _id: String,
@@ -13,5 +14,24 @@ const characterSchema = new Schema({
     homeworld: { type: String, ref: "Planet" },
     films: [{ type: String, ref: "Film" }]
 })
+
+//gets all characters
+characterSchema.statics.list = async function () {
+    return await this.find()
+        .populate('homeworld', ['_id', 'name'])
+        .populate('films', ['_id', 'title'])
+}
+
+// gets a character by Id
+characterSchema.statics.get = async function (id) {
+    return await this.findById(id)
+        .populate('homeworld', ['_id', 'name'])
+        .populate('films', ['_id', 'title'])
+}
+
+// creates a new character
+characterSchema.statics.insert = async function (character) {
+    return await this.create(character)
+}
 
 module.exports = characterSchema

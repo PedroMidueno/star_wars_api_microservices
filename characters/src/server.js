@@ -7,14 +7,16 @@ server.use(morgan('dev'))
 server.use(express.json())
 server.use('/characters', require('./routes'))
 
-server.use('*', (req, res) =>{
+server.use('*', (req, res) => {
     res.status(404).send('Not Found')
 })
 
-server.use((err, req, res, next)=>{
-    res.status(err.statusCode || 500).send({
+// Database error's message comes in err.response.data.message
+// status code comes in err.response.status when error comes from DB
+server.use((err, req, res, next) => {
+    res.status(err.response.status || err.statusCode || 500).send({
         error: true,
-        message: err.message
+        message: err.response?.data?.message || err.message
     })
 })
 

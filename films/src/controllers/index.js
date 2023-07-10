@@ -1,6 +1,7 @@
 const { catchedAsync } = require('../utils')
 
 module.exports = {
-    getFilm: catchedAsync(require('./getFilms')),
+    getAllFilms: catchedAsync(require('./getAllFilms')),
+    getFilmById: catchedAsync(require('./getFilmById')),
     createFilm: catchedAsync(require('./createFilms'))
 }

@@ -1,6 +1,7 @@
 const { catchedAsync } = require('../utils')
 
 module.exports = {
-    getPlanets: catchedAsync(require('./getPlanets')),
+    getAllPlanets: catchedAsync(require('./getAllPlanets')),
+    getPlanetById: catchedAsync(require('./getPlanetById')),
     createPlanet: catchedAsync(require('./createPlanet'))
 }

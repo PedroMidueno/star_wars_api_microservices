@@ -28,5 +28,5 @@ app.use('*', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Gateway listening in port ${PORT}`);
+    console.info("Gateway running");
 })

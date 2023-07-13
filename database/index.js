@@ -23,5 +23,5 @@ const { Character, Film, Planet } = require('./src/database')
 
 
 server.listen(PORT, () => {
-    console.log(`Database listening in http://localhost:${PORT}`);
+    console.info("Microservice Database running");
 })

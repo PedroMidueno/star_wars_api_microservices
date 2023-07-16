@@ -1,4 +1,3 @@
-const Film = require('../data')
 const axios = require('axios')
 const { response } = require('../utils')
 

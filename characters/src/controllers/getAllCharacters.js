@@ -1,4 +1,3 @@
-// const Character = require('../data')
 const { response } = require('../utils')
 const axios = require('axios')
 

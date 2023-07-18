@@ -1,5 +1,4 @@
 const { Schema } = require('mongoose')
-const { Character } = require('..')
 
 const characterSchema = new Schema({
     _id: String,
